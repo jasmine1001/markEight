@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./styles.css";
+import "./style.css";
+
 
 var emojiDictionary = {
   "🙂": "smiling",
@@ -9,14 +10,12 @@ var emojiDictionary = {
   "😡": "Angry",
   "😴": "Sleepy",
   "🤡": "joker",
-  "💩": "ughh!",
-  "👌": "nice",
-  "🦷": "teeth",
-  "🥵": "Hot",
-  "😭 ": "crying",
+  "💩": "vanshika",
   "🧁": "cupcake",
   "🍭": "candy",
-  "🌶": "chilli"
+  "🌶": "chilli",
+  "❓":"question mark",
+  "🤞":"finger-crossed",
 };
 
 var emojisWeKnow = Object.keys(emojiDictionary);
@@ -28,7 +27,9 @@ export default function App() {
     var userInput = event.target.value;
 
     var meaning = emojiDictionary[userInput];
-    // console.log(meaning);
+    if (meaning === undefined) {
+      meaning = "Emoji Not found  ";
+    }
     setMeaning(meaning);
   }
   function emojiClickHandler(emoji) {
